@@ -1,0 +1,18 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Longitude</th>
+		<th>Latitude</th>
+	</tr>
+<% @post.each do |f| %>
+<tr>
+	<td><%= f.name %></td>
+	<td><%= f.latitude %></td>
+	<td><%= f.longitude %></td>
+	<td><%= link_to 'edit', edit_post_path(f)%></td>
+	<td><%= link_to 'delete', delete_post_path(f), method: 'delete' %>
+</td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'Input Lokasi', new_post_path %>
