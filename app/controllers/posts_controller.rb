@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	http_basic_authenticate_with name: "ismailadima", password: "secret",
+	except: [:index, :show]
 	def index
 		@post = Post.all
 		respond_to do |format|
