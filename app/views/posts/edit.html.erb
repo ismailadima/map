@@ -1,3 +1,4 @@
+<h1>Edit Places</h1>
 <%= form_for @post do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
@@ -8,5 +9,5 @@
 	<%= f.label :longitude %>
 	<%= f.text_field :longitude %>
 	<br>
-	<%= f.submit %>
+	<%= f.submit 'Update', class: 'button radius small' %>
 	<% end %>

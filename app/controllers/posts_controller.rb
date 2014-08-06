@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :authorize, except: [:index, :show]
 	def index
 		@post = Post.all
 		respond_to do |format|
