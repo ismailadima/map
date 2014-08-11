@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, only: [:new, :create]
 
   resources :posts
-  delete 'posts/:id', to: 'posts#destroy', as: 'delete_post'
+  root 'posts#index'
+  # delete 'posts/:id', to: 'posts#destroy', as: 'delete_post'
 
-  resources :sessions
+  resources :sessions, except: [:index, :show, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,8 +10,9 @@
 	<td><%= f.name %></td>
 	<td><%= f.latitude %></td>
 	<td><%= f.longitude %></td>
+	<td><%= link_to 'show', post_path(f) %></td>
 	<td><%= link_to 'edit', edit_post_path(f)%></td>
-	<td><%= link_to 'delete', delete_post_path(f), method: 'delete' %>
+	<td><%= link_to 'delete', post_path(f), method: 'delete' %>
 </td>
 </tr>
 <% end %>

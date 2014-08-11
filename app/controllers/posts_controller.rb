@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(params.require(:post).permit(:name, :latitude, :longitude))
 		if @post.save
-			redirect_to posts_path, notice: "Success"
+			redirect_to root_path, notice: "Success"
 		else
 			render :new
 		end
@@ -29,6 +29,16 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-  		redirect_to posts_path
+  		respond_to do |format|
+  			format.html { redirect_to root_path, notice: 'Model was successfully destroyed' }
+  			format.json { head :no_content }
+  		end
+	end
+	def show
+		@post = Post.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.json {render json: @post}
+		end
 	end
 end
